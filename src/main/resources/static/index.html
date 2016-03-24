@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <title>Hello WebSocket</title>
 
     <link href="/themes/main/css/lib.css" rel="stylesheet">
@@ -8,14 +12,26 @@
 </head>
 <body>
 <div>
-    <div>
-        <button id="connect" onclick="connect();">Connect</button>
-        <button id="disconnect" disabled="disabled" onclick="disconnect();">Disconnect</button>
-    </div>
-    <div id="conversationDiv">
-        <label for="name">What is your name?</label><input type="text" id="name"/>
-        <button id="sendName" onclick="sendName();">Send</button>
-        <p id="response"></p>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div id="content"></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <button id="connect" onclick="connect();">Connect</button>
+                <button id="disconnect" disabled="disabled" onclick="disconnect();">Disconnect
+                </button>
+            </div>
+        </div>
+        <div id="row">
+            <div class="col-md-12">
+                <label for="name">What is your name?</label><input type="text" id="name"/>
+                <button id="sendName" onclick="sendName();">Send</button>
+                <p id="response"></p>
+            </div>
+        </div>
     </div>
 </div>
 <script src="/js/lib/lib.min.js"></script>

@@ -63,11 +63,23 @@ module.exports = function(grunt) {
             }
         },
 
+        browserify: {
+            build: {
+                options: {
+                    transform: ["reactify"]
+                },
+                files: {
+                    "src/js/app/reactApp.js": "src/js/app/jsx/**/*.jsx"
+                }
+            }
+        },
+
         concat: {
             app: {
                 files: {
                     'dist/js/app/app.min.js': [
-                        'src/js/app/app.js'
+                        'src/js/app/app.js',
+                        'src/js/app/reactApp.js'
                     ]
                 }
             },
@@ -77,7 +89,9 @@ module.exports = function(grunt) {
                         'bower_components/jquery/dist/jquery.js',
                         'bower_components/bootstrap/dist/js/bootstrap.js',
                         'bower_components/stomp-websocket/lib/stomp.js',
-                        'bower_components/sockjs-client/dist/sockjs.js'
+                        'bower_components/sockjs-client/dist/sockjs.js',
+                        'node_modules/react/dist/react.js',
+                        'node_modules/react-dom/dist/react-dom.js'
                     ]
                 }
             },
@@ -103,7 +117,9 @@ module.exports = function(grunt) {
                         'bower_components/jquery/dist/jquery.js',
                         'bower_components/bootstrap/dist/js/bootstrap.js',
                         'bower_components/stomp-websocket/lib/stomp.js',
-                        'bower_components/sockjs-client/dist/sockjs.js'
+                        'bower_components/sockjs-client/dist/sockjs.js',
+                        'node_modules/react/dist/react.js',
+                        'node_modules/react-dom/dist/react-dom.js'
                     ]
                 }
             },
@@ -148,6 +164,7 @@ module.exports = function(grunt) {
         'copy',
         'concat:css',
         'less',
+        'browserify',
         'concat:app',
         'concat:lib'
     ]);
