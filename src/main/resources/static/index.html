@@ -2,63 +2,23 @@
 <html>
 <head>
     <title>Hello WebSocket</title>
-    <script src="//cdn.jsdelivr.net/sockjs/1.0.3/sockjs.min.js"></script>
-    <script src="stomp.min.js"></script>
-    <script type="text/javascript">
-        var stompClient = null;
 
-        function setConnected(connected) {
-            document.getElementById('connect').disabled = connected;
-            document.getElementById('disconnect').disabled = !connected;
-            document.getElementById('conversationDiv').style.visibility = connected ? 'visible' : 'hidden';
-            document.getElementById('response').innerHTML = '';
-        }
-
-        function connect() {
-            var socket = new SockJS('/bet');
-            stompClient = Stomp.over(socket);
-            stompClient.connect({}, function(frame) {
-                setConnected(true);
-                console.log('Connected: ' + frame);
-                stompClient.subscribe('/topic/options', function (betOption) {
-                    showGreeting(JSON.parse(betOption.body).name);
-                });
-            });
-        }
-
-        function disconnect() {
-            stompClient.disconnect();
-            setConnected(false);
-            console.log("Disconnected");
-        }
-
-        function sendName() {
-            var name = document.getElementById('name').value;
-            stompClient.send("/app/bet", {}, JSON.stringify({ 'name': name }));
-        }
-
-        function showGreeting(message) {
-            var response = document.getElementById('response');
-            var p = document.createElement('p');
-            p.style.wordWrap = 'break-word';
-            p.appendChild(document.createTextNode(message));
-            response.appendChild(p);
-        }
-    </script>
+    <link href="/themes/main/css/lib.css" rel="stylesheet">
+    <link href="/themes/main/css/main.css" rel="stylesheet">
 </head>
 <body>
-<noscript><h2 style="color: #ff0000">Seems your browser doesn't support Javascript! WebSocket relies on Javascript being enabled. Please enable
-    Javascript and reload this page!</h2></noscript>
 <div>
     <div>
         <button id="connect" onclick="connect();">Connect</button>
         <button id="disconnect" disabled="disabled" onclick="disconnect();">Disconnect</button>
     </div>
     <div id="conversationDiv">
-        <label for="name">What is your name?</label><input type="text" id="name" />
+        <label for="name">What is your name?</label><input type="text" id="name"/>
         <button id="sendName" onclick="sendName();">Send</button>
         <p id="response"></p>
     </div>
 </div>
+<script src="/js/lib/lib.min.js"></script>
+<script src="/js/app/app.min.js"></script>
 </body>
 </html>
