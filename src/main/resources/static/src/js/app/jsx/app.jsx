@@ -2,14 +2,29 @@ var React = require('react/addons');
 var ReactDOM = require('react-dom');
 
 var BetOption = React.createClass({
+    handleClick: function (event) {
+        var bet = {
+            name: this.props.data.name,
+            type: this.props.data.odd.type,
+            odd: event.currentTarget.dataset.type,
+            amount: event.currentTarget.innerText
+        };
+        console.log("Here should be bet option saving");
+    },
     render: function () {
         return (
             <tr>
                 <td>{this.props.data.name}</td>
                 <td>{this.props.data.odd.type}</td>
-                <td>{this.props.data.odd.win}</td>
-                <td>{this.props.data.odd.draw}</td>
-                <td>{this.props.data.odd.lose}</td>
+                <td onClick={this.handleClick} data-type="win">
+                    {this.props.data.odd.win}
+                </td>
+                <td onClick={this.handleClick} data-type="draw">
+                    {this.props.data.odd.draw}
+                </td>
+                <td onClick={this.handleClick} data-type="lose">
+                    {this.props.data.odd.lose}
+                </td>
             </tr>
         );
     }
@@ -71,6 +86,9 @@ var BetApp = React.createClass({
             data: this.state.data
         });
     },
+    warn: function (message) {
+        alert(message.body.header + ": " + message.body.body);
+    },
     getInitialState: function () {
         return {data: []};
     },
@@ -78,10 +96,12 @@ var BetApp = React.createClass({
         this.getDataFromServer();
         var socket = new SockJS('/bet');
         var stompClient = Stomp.over(socket);
-        var callback = this.refresh;
+        var updateCallback = this.refresh;
+        var warnCallback = this.warn;
         stompClient.connect({}, function (frame) {
             console.log('Connected: ' + frame);
-            stompClient.subscribe("/topic/updateBetOption", callback);
+            stompClient.subscribe("/topic/updateBetOption", updateCallback);
+            stompClient.subscribe("/topic/warn", warnCallback);
         });
     },
     render: function () {
