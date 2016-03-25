@@ -27,7 +27,7 @@ GET `/reports/bets`
 
     data:
       name: 'Germany - Italy'
-      odd: 'Win'
+      type: 'Win'
 
 #### Delete loan by timestamp
 DELETE `/reports/timestamp/{timestamp}`

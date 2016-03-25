@@ -26,8 +26,8 @@ public class BetServiceImpl implements BetService {
   }
 
   @Override
-  public List<Bet> getBetListByNameAndOdd(String name, BigDecimal odd) {
-    return betRepository.findByNameAndOdd(name, odd);
+  public List<Bet> getBetListByNameAndType(String name, String type) {
+    return betRepository.findByNameAndType(name, type);
   }
 
   @Override

@@ -23,14 +23,14 @@ public class ReportRestService {
   @Autowired
   private BetService betService;
 
-  @RequestMapping("/ip/{ip}/count")
+  @RequestMapping("/bets/ip/{ip}/count")
   public Long getBetCountByIp(@PathVariable String ip) {
     return betService.getBetCountByIp(ip);
   }
 
-  @RequestMapping("/name/{name}")
-  public List<Bet> getBetListByNameAndOdd(@PathVariable String name, @RequestParam BigDecimal odd) {
-    return betService.getBetListByNameAndOdd(name, odd);
+  @RequestMapping("/bets")
+  public List<Bet> getBetListByNameAndOdd(@RequestParam String name, @RequestParam String type) {
+    return betService.getBetListByNameAndType(name, type);
   }
 
   @RequestMapping(value = "/timestamp/{timestamp}", method = RequestMethod.DELETE)

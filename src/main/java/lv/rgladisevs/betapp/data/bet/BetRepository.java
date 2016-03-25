@@ -3,7 +3,6 @@ package lv.rgladisevs.betapp.data.bet;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
-import java.math.BigDecimal;
 import java.util.List;
 
 /**
@@ -13,6 +12,6 @@ import java.util.List;
 public interface BetRepository extends CrudRepository<Bet, BetPK> {
 
   Long countByIp(String ip);
-  List<Bet> findByNameAndOdd(String name, BigDecimal odd);
+  List<Bet> findByNameAndType(String name, String type);
   void deleteByTimestamp(Long timestamp);
 }

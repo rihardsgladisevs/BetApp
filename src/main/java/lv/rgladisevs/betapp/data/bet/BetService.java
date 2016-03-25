@@ -1,6 +1,5 @@
 package lv.rgladisevs.betapp.data.bet;
 
-import java.math.BigDecimal;
 import java.util.List;
 
 /**
@@ -12,7 +11,7 @@ public interface BetService {
 
   Long getBetCountByIp(String ip);
 
-  List<Bet> getBetListByNameAndOdd(String name, BigDecimal odd);
+  List<Bet> getBetListByNameAndType(String name, String type);
 
   void deleteBetByTimestamp(Long timestamp);
 }
