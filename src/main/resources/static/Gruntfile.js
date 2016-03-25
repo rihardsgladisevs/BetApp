@@ -78,7 +78,6 @@ module.exports = function(grunt) {
             app: {
                 files: {
                     'dist/js/app/app.min.js': [
-                        'src/js/app/app.js',
                         'src/js/app/reactApp.js'
                     ]
                 }
@@ -111,7 +110,7 @@ module.exports = function(grunt) {
                 },
                 files: {
                     'dist/js/app/app.min.js': [
-                        'src/js/app/app.js'
+                        'src/js/app/reactApp.js'
                     ],
                     'dist/js/lib/lib.min.js': [
                         'bower_components/jquery/dist/jquery.js',
