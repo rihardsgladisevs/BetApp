@@ -1,3 +1,4 @@
+/*
 var stompClient = null;
 
 function setConnected(connected) {
@@ -28,12 +29,4 @@ function disconnect() {
 function sendName() {
     var name = document.getElementById('name').value;
     stompClient.send("/app/bet", {}, JSON.stringify({ 'name': name }));
-}
-
-function showGreeting(message) {
-    var response = document.getElementById('response');
-    var p = document.createElement('p');
-    p.style.wordWrap = 'break-word';
-    p.appendChild(document.createTextNode(message));
-    response.appendChild(p);
-}
+}*/

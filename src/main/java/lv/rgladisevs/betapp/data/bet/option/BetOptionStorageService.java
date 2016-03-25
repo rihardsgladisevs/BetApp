@@ -1,5 +1,7 @@
 package lv.rgladisevs.betapp.data.bet.option;
 
+import java.util.List;
+
 import rx.subjects.PublishSubject;
 
 /**
@@ -10,4 +12,6 @@ public interface BetOptionStorageService {
   BetOption getBetOptionFromMap(String matchName);
 
   void updateOptionInMap(BetOption betOption);
+
+  List<BetOption> getBetOptionList();
 }

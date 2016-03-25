@@ -5,9 +5,9 @@ import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
-
-import rx.subjects.PublishSubject;
 
 /**
  * Created by rihards.gladisevs on 2016.03.20..
@@ -29,5 +29,10 @@ public class BetOptionStorageServiceImpl implements BetOptionStorageService {
   public void updateOptionInMap(BetOption betOption) {
     this.betOptionMap.put(betOption.getName(), betOption);
     log.debug("Bet option map updated: {}", betOptionMap);
+  }
+
+  @Override
+  public List<BetOption> getBetOptionList() {
+    return new ArrayList<>(betOptionMap.values());
   }
 }

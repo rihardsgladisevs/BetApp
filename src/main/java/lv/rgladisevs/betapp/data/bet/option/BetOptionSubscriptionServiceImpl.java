@@ -38,7 +38,7 @@ public class BetOptionSubscriptionServiceImpl implements BetOptionSubscriptionSe
   }
 
   protected void pushBetOptionToWebSocket(BetOption betOption) {
-    String destination = "/topic/options";
+    String destination = "/topic/updateBetOption";
     messagingTemplate.convertAndSend(destination, betOption);
   }
 

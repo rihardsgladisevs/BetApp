@@ -90,7 +90,7 @@ module.exports = function(grunt) {
                         'bower_components/bootstrap/dist/js/bootstrap.js',
                         'bower_components/stomp-websocket/lib/stomp.js',
                         'bower_components/sockjs-client/dist/sockjs.js',
-                        'node_modules/react/dist/react.js',
+                        'node_modules/react/dist/react-with-addons.js',
                         'node_modules/react-dom/dist/react-dom.js'
                     ]
                 }
@@ -118,7 +118,7 @@ module.exports = function(grunt) {
                         'bower_components/bootstrap/dist/js/bootstrap.js',
                         'bower_components/stomp-websocket/lib/stomp.js',
                         'bower_components/sockjs-client/dist/sockjs.js',
-                        'node_modules/react/dist/react.js',
+                        'node_modules/react/dist/react-with-addons.js',
                         'node_modules/react-dom/dist/react-dom.js'
                     ]
                 }
