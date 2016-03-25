@@ -25,6 +25,9 @@ public class ApplicationStartup implements ApplicationListener<ContextRefreshedE
   public void onApplicationEvent(ContextRefreshedEvent contextRefreshedEvent) {
     this.matchService.saveMatch(new Match("Russia - France"));
     this.matchService.saveMatch(new Match("Germany - Italy"));
+    this.matchService.saveMatch(new Match("Latvia - Russia"));
+    this.matchService.saveMatch(new Match("France - Spain"));
+    this.matchService.saveMatch(new Match("Netherlands - Sweden"));
 
     betOptionSubscriptionService.initBetOptionSubscription();
   }

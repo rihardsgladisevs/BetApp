@@ -13,7 +13,7 @@ import static lv.rgladisevs.betapp.data.bet.option.odd.BetOptionOddType.ODD_TYPE
 public class BetOptionUtils {
 
   private static final double[] WIN_LOSE_COEFFICIENT_RANGE = {1.0, 3.0};
-  private static final double[] DRAW_COEFFICIENT_RANGE = {1.0, 3.0};
+  private static final double[] DRAW_COEFFICIENT_RANGE = {3.0, 4.0};
 
   public static BetOptionOdd generateRandomBetOptionOdd() {
     BigDecimal win = BetOptionUtils.getRandomCoefficient(WIN_LOSE_COEFFICIENT_RANGE);

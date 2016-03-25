@@ -62,12 +62,14 @@ var BetApp = React.createClass({
         }).indexOf(betOption.name);
         if (index !== -1) {
             this.state.data[index] = betOption;
-            this.setState({
-                data: this.state.data
-            });
             /*this.setState(React.addons.update(this.state.data[index],
                 {datetime: {$set: betOption.datetime}, odd: {$set: betOption.odd}}));*/
+        } else {
+            this.state.data.push(betOption);
         }
+        this.setState({
+            data: this.state.data
+        });
     },
     getInitialState: function () {
         return {data: []};
