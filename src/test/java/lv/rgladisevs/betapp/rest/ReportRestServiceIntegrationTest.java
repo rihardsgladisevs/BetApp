@@ -108,7 +108,7 @@ public class ReportRestServiceIntegrationTest {
     List<Bet> deserializedResult = new ObjectMapper()
         .readValue(result.getResponse().getContentAsString(), new TypeReference<List<Bet>>() {});
     assertThat(betList, hasSize(deserializedResult.size()));
-    assertThat(betList.get(0).getIp(), equalTo(deserializedResult.get(0).getIp()));
+    assertThat(betList.get(0), equalTo(deserializedResult.get(0)));
   }
 
   @Test

@@ -2,6 +2,7 @@ package lv.rgladisevs.betapp.data.bet;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
+import java.util.Objects;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -106,5 +107,29 @@ public class Bet implements Serializable {
 
   public void setBetOptionDatetime(Long betOptionDatetime) {
     this.betOptionDatetime = betOptionDatetime;
+  }
+
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
+    }
+    if (!(o instanceof Bet)) {
+      return false;
+    }
+    Bet bet = (Bet) o;
+    return Objects.equals(getIp(), bet.getIp()) &&
+           Objects.equals(getTimestamp(), bet.getTimestamp()) &&
+           Objects.equals(getName(), bet.getName()) &&
+           Objects.equals(getType(), bet.getType()) &&
+           Objects.equals(getOdd(), bet.getOdd()) &&
+           Objects.equals(getAmount(), bet.getAmount()) &&
+           Objects.equals(getCurrency(), bet.getCurrency());
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects
+        .hash(getIp(), getTimestamp(), getName(), getType(), getOdd(), getAmount(), getCurrency());
   }
 }

@@ -58,7 +58,7 @@ public class ReportRestServiceTest {
     List<Bet> result = reportRestService.getBetListByNameAndOdd(name, type);
     verify(betService, times(1)).getBetListByNameAndType(name, type);
     assertThat(betList, hasSize(result.size()));
-    assertEquals(betList.get(0).getIp(), result.get(0).getIp());
+    assertEquals(betList.get(0), result.get(0));
   }
 
   @Test
