@@ -21,6 +21,7 @@ import java.util.Collections;
 import java.util.List;
 
 import lv.rgladisevs.betapp.Application;
+import lv.rgladisevs.betapp.TestUtils;
 import lv.rgladisevs.betapp.data.bet.Bet;
 import lv.rgladisevs.betapp.data.bet.BetService;
 
@@ -63,7 +64,7 @@ public class ReportRestServiceIntegrationTest {
     MockitoAnnotations.initMocks(this);
     this.mockMvc = standaloneSetup(reportRestService).build();
 
-    Bet bet = RestTestUtils.getBetFromFile();
+    Bet bet = TestUtils.getBetFromFile();
     this.betList = Collections.singletonList(bet);
   }
 

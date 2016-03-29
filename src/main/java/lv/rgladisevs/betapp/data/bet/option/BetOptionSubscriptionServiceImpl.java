@@ -31,18 +31,18 @@ public class BetOptionSubscriptionServiceImpl implements BetOptionSubscriptionSe
                    () -> log.debug("done"));
   }
 
-  protected void processBetOption(BetOption betOption) {
+  private void processBetOption(BetOption betOption) {
     log.debug("Added: {}", betOption);
     updateBetOptionInStorage(betOption);
     pushBetOptionToWebSocket(betOption);
   }
 
-  protected void pushBetOptionToWebSocket(BetOption betOption) {
+  private void pushBetOptionToWebSocket(BetOption betOption) {
     String destination = "/topic/updateBetOption";
     messagingTemplate.convertAndSend(destination, betOption);
   }
 
-  protected void updateBetOptionInStorage(BetOption betOption) {
+  private void updateBetOptionInStorage(BetOption betOption) {
     betOptionStorageService.updateOptionInMap(betOption);
   }
 }

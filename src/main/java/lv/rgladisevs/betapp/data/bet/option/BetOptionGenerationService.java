@@ -29,7 +29,7 @@ public class BetOptionGenerationService {
   private BetOptionObserverService betOptionObserverService;
 
   @Scheduled(fixedRate = 5000)
-  private void generateAndUpdateBetOptions() throws BrokenBarrierException, InterruptedException {
+  protected void generateAndUpdateBetOptions() throws BrokenBarrierException, InterruptedException {
     List<Match> matchList = matchService.getAllMatches();
     int index = new Random().nextInt(matchList.size());
     Match randomMatch = matchList.get(index);

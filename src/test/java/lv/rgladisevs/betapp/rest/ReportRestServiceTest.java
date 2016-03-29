@@ -9,6 +9,7 @@ import org.mockito.MockitoAnnotations;
 import java.util.Collections;
 import java.util.List;
 
+import lv.rgladisevs.betapp.TestUtils;
 import lv.rgladisevs.betapp.data.bet.Bet;
 import lv.rgladisevs.betapp.data.bet.BetService;
 
@@ -36,7 +37,7 @@ public class ReportRestServiceTest {
   public void setUp() throws Exception {
     MockitoAnnotations.initMocks(this);
 
-    Bet bet = RestTestUtils.getBetFromFile();
+    Bet bet = TestUtils.getBetFromFile();
     betList = Collections.singletonList(bet);
   }
 
