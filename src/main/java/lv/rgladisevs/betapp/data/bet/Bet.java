@@ -16,7 +16,7 @@ import javax.persistence.Transient;
 @IdClass(BetPK.class)
 @Entity
 @Table(name = "bet")
-public class Bet implements Serializable{
+public class Bet implements Serializable {
 
   @Id
   @Column(name = "ip")
@@ -33,7 +33,7 @@ public class Bet implements Serializable{
   private String type;
 
   @Column(name = "odd")
-  private BigDecimal odd;
+  private String odd;
 
   @Column(name = "amount")
   private BigDecimal amount;
@@ -76,11 +76,11 @@ public class Bet implements Serializable{
     this.type = type;
   }
 
-  public BigDecimal getOdd() {
+  public String getOdd() {
     return odd;
   }
 
-  public void setOdd(BigDecimal odd) {
+  public void setOdd(String odd) {
     this.odd = odd;
   }
 
